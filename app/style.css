@@ -1,0 +1,306 @@
+/* Sunset Ledger — a light paper look, system fonts only, no network. */
+:root {
+  --paper: #f6f1e7;
+  --surface: #fffdf8;
+  --surface-soft: #fbf7ee;
+  --ink: #23272e;
+  --muted: #6b6f76;
+  --line: #e2d9c6;
+  --accent: #0f766e;
+  --accent-soft: #e0f0ee;
+  --warn: #9a3412;
+  --warn-soft: #fdeede;
+  --gold: #b45309;
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+
+button, input, select, textarea { font: inherit; }
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 7px 12px;
+}
+
+button:hover { border-color: var(--accent); }
+button.quiet { background: transparent; }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Header */
+.site-head {
+  background: #1d2b2a;
+  color: #f4efe4;
+  padding: 26px 20px 22px;
+}
+.head-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.site-head h1 {
+  margin: 0 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  letter-spacing: 0.5px;
+}
+.lede { margin: 0; max-width: 560px; color: #cfc9b8; }
+.progress-card {
+  background: #263735;
+  border: 1px solid #3a4a47;
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  min-width: 260px;
+}
+.progress-big { font-size: 26px; font-weight: 700; }
+.progress-of { font-size: 15px; font-weight: 400; color: #cfc9b8; }
+.progress-bar {
+  height: 10px;
+  background: #16211f;
+  border-radius: 6px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.progress-fill { height: 100%; background: #e8a33d; border-radius: 6px; transition: width 0.2s; }
+.grade-counts { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #cfc9b8; }
+.grade-counts b { color: #fff; }
+
+/* Tabs */
+.tabs {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 20px 0;
+  display: flex;
+  gap: 8px;
+}
+.tab {
+  border: 1px solid var(--line);
+  border-bottom: none;
+  background: var(--surface-soft);
+  border-radius: 10px 10px 0 0;
+  padding: 9px 16px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.tab.active { background: var(--surface); color: var(--ink); }
+
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 30px;
+}
+.view {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
+  padding: 18px;
+}
+.view[hidden] { display: none; }
+.section-intro { margin: 2px 0 16px; color: var(--muted); max-width: 760px; }
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.search-box input {
+  width: 240px;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.field { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
+.field select { padding: 7px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.spoiler-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+.save-actions { margin-left: auto; display: flex; gap: 6px; }
+.toolbar-note { margin: 4px 0 12px; color: var(--muted); font-size: 13px; }
+
+/* Guide layout */
+.guide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 18px;
+  align-items: start;
+}
+.trophy-list { list-style: none; margin: 0; padding: 0; }
+.trophy-row {
+  display: grid;
+  grid-template-columns: 26px 18px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  padding: 11px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  background: var(--surface-soft);
+  cursor: pointer;
+}
+.trophy-row:hover { border-color: var(--accent); }
+.trophy-row.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.trophy-row.earned { background: var(--accent-soft); }
+.trophy-row input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); }
+.medal { width: 14px; height: 14px; border-radius: 50%; margin-top: 4px; border: 1px solid rgba(0,0,0,0.25); }
+.medal.platinum { background: #dfe7ef; }
+.medal.gold { background: #d4af5a; }
+.medal.silver { background: #aeb6bf; }
+.medal.bronze { background: #b9784c; }
+.trophy-name { font-weight: 700; }
+.trophy-name .hidden-tag { color: var(--muted); font-weight: 400; font-style: italic; }
+.trophy-desc { color: var(--muted); font-size: 13px; }
+.trophy-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.tag {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #efe9db;
+  color: #5c5646;
+}
+.tag.missable { background: var(--warn-soft); color: var(--warn); font-weight: 700; }
+.tag.target { background: #e7ecec; color: #3d4a48; }
+.trophy-grade { font-size: 12px; color: var(--muted); text-transform: capitalize; text-align: right; }
+.trophy-grade .grade-word { display: block; font-weight: 700; color: var(--ink); }
+.empty-list { color: var(--muted); padding: 18px; text-align: center; }
+
+/* Detail pane */
+.detail {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  position: sticky;
+  top: 12px;
+  background: var(--surface-soft);
+}
+.detail-empty { color: var(--muted); margin: 0; }
+.detail h2 { margin: 0 0 4px; font-size: 21px; font-family: Georgia, serif; }
+.detail .detail-grade { color: var(--muted); font-size: 13px; margin: 0 0 10px; text-transform: capitalize; }
+.detail .detail-desc { font-style: italic; color: #4a4e55; margin: 0 0 12px; }
+.detail h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 16px 0 6px; }
+.detail p { margin: 0 0 10px; }
+.detail .missable-note {
+  background: var(--warn-soft);
+  border: 1px solid #f0c9a8;
+  color: var(--warn);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+.detail .source-list { margin: 0; padding-left: 18px; font-size: 13px; }
+.detail .source-list li { margin-bottom: 3px; }
+.detail label.note-label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+.detail textarea {
+  width: 100%;
+  min-height: 64px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  resize: vertical;
+  background: #fff;
+}
+.detail .earned-btn { margin-top: 12px; width: 100%; }
+
+/* Roadmap */
+.roadmap { list-style: none; margin: 0; padding: 0; counter-reset: stage; }
+.roadmap > li {
+  counter-increment: stage;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  background: var(--surface-soft);
+}
+.roadmap > li::before {
+  content: "Stage " counter(stage);
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.roadmap h2 { margin: 0 0 4px; font-size: 19px; font-family: Georgia, serif; }
+.roadmap .stage-note { color: var(--muted); margin: 0 0 10px; }
+.roadmap .stage-progress { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.roadmap .stage-trophies { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.roadmap .stage-trophies button {
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.roadmap .stage-trophies button.done { background: var(--accent-soft); border-color: var(--accent); text-decoration: line-through; }
+
+/* Missables */
+.missable-card {
+  border: 2px solid var(--warn);
+  background: var(--warn-soft);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.missable-card h2 { margin: 0 0 6px; color: var(--warn); }
+.missable-card p { margin: 0 0 8px; }
+.advice-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  background: var(--surface-soft);
+}
+.advice-card h2 { margin: 0 0 8px; font-size: 18px; font-family: Georgia, serif; }
+.advice-card li { margin-bottom: 6px; }
+
+/* Footer */
+.site-foot {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.site-foot p { margin: 0 0 8px; }
+
+@media (max-width: 900px) {
+  .guide-layout { grid-template-columns: 1fr; }
+  .detail { position: static; }
+  .save-actions { margin-left: 0; }
+  .site-head h1 { font-size: 28px; }
+}
